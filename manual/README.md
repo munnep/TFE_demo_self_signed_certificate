@@ -1,5 +1,22 @@
 # manual installation TFE demo with self signed certificates
 
+This manual describes how to manually install TFE (Terraform Enterprise) with self-signed certificates
+
+For the official documentation [see this link](https://www.terraform.io/enterprise/install/interactive/installer)
+
+Steps involved:
+- Start an ubuntu machine with Vagrant in Virtualbox
+- Create self-signed certificates to use with TFE
+- Install TFE
+- Configure TFE basics
+
+# Prerequisites
+
+## Vagrant
+Vagrant [See documentation](https://www.vagrantup.com/docs/installation)  
+Virtualbox [See documentation](https://www.virtualbox.org/wiki/Downloads)
+
+
 # How to
 
 - Start the Vagrant box on which we we will install TFE
@@ -11,7 +28,7 @@ vagrant up
 vagrant ssh
 ```
 - create the self signed certificates we will be using later
-```
+```bash
 touch /home/vagrant/.rnd
 
 cd /vagrant/certificates
@@ -25,14 +42,9 @@ sudo cp /vagrant/certificates/ca.crt /etc/ssl/certs/
 sudo cp /vagrant/certificates/server.crt /etc/ssl/certs/
 sudo update-ca-certificates --fresh
 ```
-- Download the installation script
+- Download and run the installation script
 ```
-cd 
-curl https://install.terraform.io/ptfe/stable > install.sh
-```
-- Run the installation script
-```
-sudo bash install.sh
+curl https://install.terraform.io/ptfe/stable | sudo bash
 ```
 - For the private ip address choose ```1```
 ```
@@ -50,7 +62,7 @@ The installer was unable to automatically detect the service IP address of this 
 Please enter the address or leave blank for unspecified.
 Service IP address: 
 ```
-- No need for a proxy
+- No need for a proxy ```N```
 ```
 Does this machine require a proxy to access the Internet? (y/N)
 ```
@@ -67,31 +79,31 @@ To continue the installation, visit the following URL in your browser:
 ![](media/2022-01-19-14-04-25.png)    
 - click advanced and ```proceed to 192.168.56.33.nip.io```  
 ![](media/192.168.56.33.nip.io.png)  
-- upload the TLS certificates created earlier  
-![](media/2022-01-19-14-08-02.png)
-- when you reload you may get a warning the certificate isn't valid. Make an exception in the browser for the certificate so it will continue
-![](media/2022-01-19-14-12-53.png)  
-![](media/2022-01-19-14-13-12.png)  
-- Use Self-Signed Cert
-![](media/2022-01-19-15-05-00.png)  
-- Proceed to website
-![](media/2022-01-19-15-05-33.png)  
-- Upload the license file to use
-![](media/2022-01-19-15-06-00.png)  
-- online installation
-![](media/2022-01-19-15-06-30.png)  
-- Choose password ```Password#1```
-![](media/2022-01-19-15-07-35.png)  
-- Preflight Checks should be good
-![](media/2022-01-19-15-08-35.png)  
-- Settings 
-    - Hostname: ```192.168.56.33.nip.io```
-    - Encryption password: ```Password#1```
-    - click save
-- On the dashboard you should see the Terraform is up and running and the link with open
-![](media/2022-01-19-15-17-42.png)  
-- create a first account which will be the admin account
-![](media/2022-01-19-15-20-23.png)  
-- create your organization
-![](media/2022-01-19-15-20-58.png)  
-- create a workspace if you want to
+- Configure the HTTPS for admin console with the following settings
+    - hostname: ```192.168.56.33.nip.io```
+    - Click on the link ```If your private key and cert are already on this server, click here.```
+    - Private key path: ```/vagrant/certificates/server.key```
+    - Certificate path: ```/vagrant/certificates/server.crt```   
+![](media/2022-01-19-16-30-35.png)  
+- When you reload you may get a warning the certificate isn't valid. Add the self-signed root certificate ```certifcates/ca.crt``` as trusted on your machine.
+- When you added the root certificate to your machine reload the page. 
+- Upload your license ```<name>.rli```  
+![](media/2022-01-19-15-06-00.png)    
+- Choose ```Online``` installation and click Continue  
+![](media/2022-01-19-15-06-30.png)    
+- Choose password ```Password#1```  
+![](media/2022-01-19-15-07-35.png)    
+- Preflight Checks should be good  
+![](media/2022-01-19-15-08-35.png)    
+- You will get on the ```Settings``` page. Configure the below chapters   
+    - Hostname: ```192.168.56.33.nip.io```  
+    - Encryption password: ```Password#1```  
+    - Installation Type: ```Demo```
+    - click ```save``` at the bottom of the page 
+- On the dashboard you should see the Terraform is up and running and the link with open . This takes around 5 minutes to finish
+![](media/2022-01-19-15-17-42.png)    
+- create a first account which will be the admin account  
+![](media/2022-01-19-15-20-23.png)    
+- create your organization  
+![](media/2022-01-19-15-20-58.png)    
+- You have a running TFE environment which you can use 
