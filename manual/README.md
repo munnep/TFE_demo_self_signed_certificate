@@ -16,6 +16,8 @@ Steps involved:
 Vagrant [See documentation](https://www.vagrantup.com/docs/installation)  
 Virtualbox [See documentation](https://www.virtualbox.org/wiki/Downloads)
 
+## License
+Make sure you have TFE license available for use
 
 # How to
 
