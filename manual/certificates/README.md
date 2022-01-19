@@ -1,0 +1,1 @@
+Location for the certificates in a manual setup
