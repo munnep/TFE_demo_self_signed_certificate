@@ -1,4 +1,6 @@
-cat <<-CONF > /vagrant/tfe_settings.json
+#!/usr/bin/env bash
+
+cat <<-CONF > /vagrant/config/tfe_settings.json
 {
     "backup_token": {
         "value": "3e69c0572c1eddf7f232cf60f6b8634194bf40d09aa9535c78430e64df407ec4"
@@ -39,3 +41,5 @@ cat <<-CONF > /vagrant/tfe_settings.json
     }
 }
 CONF
+
+chmod 600 /vagrant/config/tfe_settings.json

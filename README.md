@@ -6,8 +6,8 @@ TFE with self signed certificates
 - [x] Vagrant box
 - [x] Generate TLS self-signed certificates
 - [x] generate terraform settings.json file
+- [x] generate replicated.conf file
 
 # To do  
-- [ ] generate replicated.conf file
 - [ ] terraform installation script
 
