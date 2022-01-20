@@ -3,7 +3,7 @@ Vagrant.configure("2") do |config|
     config.vm.box = "alvaro/bionic64"
 
     config.vm.hostname = "TFE-demo-auto"
-    config.vm.network "private_network", ip: "192.168.56.34"
+    config.vm.network "private_network", ip: "192.168.56.33"
      
     config.vm.provider "virtualbox" do |v|
         v.memory = 4096
