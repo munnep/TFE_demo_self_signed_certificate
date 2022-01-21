@@ -40,6 +40,7 @@ vagrant up
 ```
 - You should see the following message when Vagrant has started the Virtual machine
 ```
+    default: #######################################################
     default: #              TFE installation complete              #
     default: # TFE dashboard: https://192.168.56.33.nip.io:8800    #
     default: # TFE Application: https://192.168.56.33.nip.io       #
@@ -62,6 +63,7 @@ sudo security add-trusted-cert -d -r trustRoot -k "/Library/Keychains/System.key
 user: admin
 password: Password#1
 ```
+![](media/2022-01-21-16-22-29.png)  
 - Stop the vagrant machine
 ```
 vagrant halt
