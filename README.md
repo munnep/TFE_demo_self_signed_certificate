@@ -7,7 +7,7 @@ TFE with self signed certificates
 - [x] Generate TLS self-signed certificates
 - [x] generate terraform settings.json file
 - [x] generate replicated.conf file
+- [x] terraform installation script
 
 # To do  
-- [ ] terraform installation script
 

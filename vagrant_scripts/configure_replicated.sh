@@ -9,9 +9,11 @@ cat <<-CONF > /etc/replicated.conf
     "TlsBootstrapCert":             "/vagrant/certificates/server.crt",
     "TlsBootstrapKey":              "/vagrant/certificates/server.key",
     "BypassPreflightChecks":        true,
-    "ImportSettingsFrom":           "/vagrant/config/settings.json",
+    "ImportSettingsFrom":           "/vagrant/config/tfe_settings.json",
     "LicenseFileLocation":          "/vagrant/config/license.rli"
 }
 CONF
 
 chmod 600 /etc/replicated.conf
+
+
