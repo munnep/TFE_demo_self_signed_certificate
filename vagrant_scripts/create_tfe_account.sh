@@ -38,6 +38,6 @@ curl \
 echo ""
 echo "#######################################################"
 echo "#              TFE installation complete              #"
-echo "# TFE dashboard: https://192.168.56.33.nip.io:8800#   #"
+echo "# TFE dashboard: https://192.168.56.33.nip.io:8800    #"
 echo "# TFE Application: https://192.168.56.33.nip.io       #" 
 echo "#######################################################"
