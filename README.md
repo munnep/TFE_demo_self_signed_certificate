@@ -17,6 +17,8 @@ Vagrant virtual machine:
 
 For a manual installation of TFE follow [this documentation](manual/README.md) 
 
+# Prerequisites
+
 ## Vagrant
 Vagrant [See documentation](https://www.vagrantup.com/docs/installation)  
 Virtualbox [See documentation](https://www.virtualbox.org/wiki/Downloads)
