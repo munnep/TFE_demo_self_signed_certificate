@@ -14,17 +14,6 @@ while true; do
     fi
 done
 
-cat <<-CONF > /vagrant/config/create_tfe_user.json
-{
-    "username": "admin",
-    "email": "it@mycompany.com",
-    "password": "Password#1"
-}
-CONF
-
-
-
-
 pushd /vagrant/config
 
 initial_token=$(/usr/local/bin/replicated admin --tty=0 retrieve-iact | tr -d '\r')
