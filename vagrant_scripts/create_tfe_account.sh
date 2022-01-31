@@ -33,7 +33,7 @@ curl \
   --header "Content-Type: application/json" \
   --request POST \
   --data @create_tfe_user.json \
-  https://192.168.56.33.nip.io/admin/initial-admin-user?token=$initial_token
+  https://192.168.56.33.nip.io/admin/initial-admin-user?token=${initial_token}
 
 echo ""
 echo "#######################################################"
