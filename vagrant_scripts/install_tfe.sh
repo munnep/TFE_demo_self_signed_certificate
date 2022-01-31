@@ -1,10 +1,7 @@
 #!/usr/bin/env bash
 
-# TODO
-# copy file to some destination at the computer.
-# set permissions
-
-chmod 600 /vagrant/config/license.rli
+cp /vagrant/config/license.rli /var/tmp/license.rli
+chmod 600 /var/tmp/license.rli
 
 curl -o /var/tmp/install.sh https://install.terraform.io/ptfe/stable
 
